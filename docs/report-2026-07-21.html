@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Job report — Golden Ridge Partners "First Light" landing page</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1F2937; margin: 48px 56px; font-size: 13px; line-height: 1.55; }
+  h1 { color: #0B2545; font-size: 22px; margin-bottom: 2px; }
+  h2 { color: #0B2545; font-size: 15px; margin-top: 26px; border-bottom: 2px solid #0B2545; padding-bottom: 4px; }
+  .meta { color: #6b7280; margin-bottom: 18px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+  th, td { text-align: left; padding: 6px 10px; border: 1px solid #d1d5db; vertical-align: top; }
+  th { background: #0B2545; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #F3F5F8; }
+  code { background: #F3F5F8; padding: 1px 4px; font-size: 12px; }
+  .confirm { color: #b45309; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>"First Light" landing page — Golden Ridge Partners</h1>
+<p class="meta">HavenbloomAI · Job report · 2026-07-21 · Repo: <code>C:\Users\hustl\goldenridge-landing</code> · github.com/Erro429/goldenridge-landing</p>
+
+<h2>What was delivered</h2>
+<p>A new standalone one-page landing site for Golden Ridge Partners (Juliana) —
+separate from the main goldenrp.land Next.js site, in its own repo per the
+client-separation rule. Plain HTML/CSS/JS, no build step, PORT-aware server
+with HTTP Range support, Docker pack (node:20-alpine, healthcheck).</p>
+
+<h2>Concept — "First Light"</h2>
+<p>A 30-second scroll-scrubbed sunrise film runs fixed behind the entire page:
+pre-dawn Florida pine flatwoods with ground mist → first golden rays breaking
+through the pines → the sun cresting the treeline and flooding a misty meadow,
+landing into the sun-gold CTA section ("Your land is waiting"). Sections float
+transparent over the film. Identity is fully distinct from the Spotlight,
+UnleeshAI, and Ground Truth pages: pine/sand/sun-gold palette, Bricolage
+Grotesque display type, a rising-sun preloader (no % counter, no beam), and
+drifting fireflies in the hero.</p>
+
+<h2>Copy compliance — every claim sourced</h2>
+<table>
+<tr><th>Claim on the page</th><th>Source in the live site code</th></tr>
+<tr><td>0% interest, no banks, no credit checks</td><td>Homepage metadata + how-it-works page</td></tr>
+<tr><td>One flat $249 document fee, no hidden/monthly/prepayment fees</td><td>Guarantee page FAQ + calculator (<code>ourDoc = 249</code>)</td></tr>
+<tr><td>Old-way costs: ~3% realtor, ~$800 closing, ~$495 underwriting, ~$500 doc</td><td>Guarantee page calculator constants</td></tr>
+<tr><td>Love It or Swap It: 100 days, swap equal-or-greater, principal transfers 100%, Warranty Deed</td><td>Guarantee page FAQ answers</td></tr>
+<tr><td>4 steps (browse → reserve → sign digitally → ownership journey)</td><td>How-it-works page steps array</td></tr>
+<tr><td>Putnam "last frontier of affordable sunshine"</td><td>Homepage "Wild Florida" section</td></tr>
+<tr><td>Juliana's promise quote</td><td>Guarantee page hero ("My promise is simple…")</td></tr>
+</table>
+
+<h2>Verification (measured, not assumed)</h2>
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Whole-page scrub, real Chrome (H.264)</td><td>0/25/50/75/100% scroll → 0.00/7.54/15.08/22.63/30.17 s</td></tr>
+<tr><td>Horizontal overflow</td><td>scrollWidth 1440 = viewport, none</td></tr>
+<tr><td>Console errors</td><td>0</td></tr>
+<tr><td>Screenshots</td><td>Hero (fireflies over pre-dawn pines), guarantee certificate, gold finale — all readable, AA-safe</td></tr>
+<tr><td>Encodes</td><td>All-intra 12 fps + denoise: 16.7 MB desktop / 4.5 MB mobile / 150 KB poster (preloaded LCP)</td></tr>
+<tr><td>Fallbacks</td><td>Reduced-motion &amp; data-saver: poster only, no video download, no animations; no-JS fully readable</td></tr>
+</table>
+
+<h2>Assets</h2>
+<p>Film: 3 × 10 s Higgsfield kling3_0_turbo segments frame-chained via
+last-frame → start_image, concatenated, single ByteDance 2K aigc upscale.
+~45–60 credits total. All prompts + job IDs in <code>docs/asset-log.md</code>
+for regeneration.</p>
+
+<h2>Outstanding — needs Kira / Juliana</h2>
+<table>
+<tr><th>Item</th><th>Detail</th></tr>
+<tr><td class="confirm">Highlands blurb [CONFIRM]</td><td>The Highlands County card copy ("Lake country in the heart of the state… hand-picked for buildability and access") is written to be safe but is not verbatim from the site — confirm or supply preferred wording.</td></tr>
+<tr><td class="confirm">Hosting</td><td>Docker pack ready (Render/Railway/Fly/Coolify auto-detect). No deploy target chosen. Could live at a subdomain (e.g. land.goldenrp.land) or replace a campaign URL.</td></tr>
+<tr><td class="confirm">Fonts</td><td>Google Fonts CDN (Bricolage Grotesque, Karla, Space Mono). Self-host before production if desired.</td></tr>
+<tr><td class="confirm">CTA destination</td><td>All CTAs point at https://goldenrp.land/inventory. Confirm that is the wanted funnel entry.</td></tr>
+</table>
+</body>
+</html>

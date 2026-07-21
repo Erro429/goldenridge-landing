@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golden Ridge Partners — Owner-Financed Land in Florida</title>
+  <meta name="description" content="Own your piece of Florida with 0% interest owner financing. No banks, no credit checks, one flat $249 document fee. Hand-selected land in Putnam and Highlands counties." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='10' r='5' fill='%23e9a13b'/%3E%3Crect y='10' width='16' height='6' fill='%2310261b'/%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="media/poster.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- Preloader: a sun rises over the horizon line, then dawn lifts the loader away -->
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__sky">
+      <span class="loader__sun" data-loader-sun></span>
+    </div>
+    <div class="loader__ground"></div>
+    <p class="loader__word">Golden Ridge</p>
+    <p class="loader__sub">first light coming up</p>
+  </div>
+  <script>
+    (function () {
+      var el = document.querySelector('[data-loader]');
+      if (!el) return;
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var save = navigator.connection && navigator.connection.saveData;
+      if (!reduce && !save) el.classList.add('is-active');
+    })();
+  </script>
+
+  <!-- The sunrise film: fixed behind the whole page, scrubbed by total scroll -->
+  <div class="film" aria-hidden="true">
+    <video class="film__video" data-film muted playsinline preload="auto"
+           poster="media/poster.webp"
+           data-src-desktop="media/scrub-1080.mp4"
+           data-src-mobile="media/scrub-540.mp4"></video>
+    <div class="film__tint"></div>
+  </div>
+
+  <header class="nav" data-nav>
+    <a class="nav__brand" href="#top">Golden<span class="nav__brand-sun">Ridge</span></a>
+    <a class="nav__cta" href="https://goldenrp.land/inventory">Browse the land</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ACT 1 · Hero -->
+    <section class="hero">
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__fireflies" data-fireflies aria-hidden="true"></div>
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal">Owner-financed land · Florida</p>
+        <h1 class="hero__title">
+          <span class="reveal">Own your piece</span>
+          <span class="reveal"><em>of Florida.</em></span>
+        </h1>
+        <p class="hero__sub reveal">
+          0% interest owner financing. No banks, no credit checks, and one flat
+          $249 document fee. Hand-selected land in Putnam and Highlands counties,
+          verified and ready for ownership.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--sun" href="https://goldenrp.land/inventory">Browse the land</a>
+          <p class="hero__micro">Real parcels, real-time availability. What you see is what's purchasable.</p>
+        </div>
+      </div>
+      <p class="hero__hint" aria-hidden="true">scroll toward sunrise</p>
+    </section>
+
+    <div class="interlude" aria-hidden="true"></div>
+
+    <!-- ACT 2 · The old way (brutalist cost ledger) -->
+    <section class="oldway" id="oldway">
+      <div class="section-head">
+        <p class="kicker reveal">Act 02 · The old way</p>
+        <h2 class="reveal">Buying land used to be<br /><em>complicated.</em></h2>
+        <p class="section-lede reveal">Banks, brokers, and a stack of fees before
+        you own a single blade of grass. Here is what the traditional route
+        typically adds on a land purchase.</p>
+      </div>
+      <div class="ledger">
+        <div class="lrow stamp"><p class="lrow__item">Realtor commission</p><p class="lrow__cost lrow__cost--struck">~3% of price</p></div>
+        <div class="lrow stamp"><p class="lrow__item">Closing costs</p><p class="lrow__cost lrow__cost--struck">~$800</p></div>
+        <div class="lrow stamp"><p class="lrow__item">Underwriting</p><p class="lrow__cost lrow__cost--struck">~$495</p></div>
+        <div class="lrow stamp"><p class="lrow__item">Lender document fees</p><p class="lrow__cost lrow__cost--struck">~$500</p></div>
+        <div class="lrow stamp"><p class="lrow__item">Credit check gauntlet</p><p class="lrow__cost lrow__cost--struck">weeks</p></div>
+        <div class="lrow lrow--ours stamp"><p class="lrow__item">Golden Ridge, all-in</p><p class="lrow__cost">one flat $249 doc fee</p></div>
+      </div>
+      <p class="oldway__fine reveal">No monthly note fees, no prepayment
+      penalties, no statement fees. Disclosed upfront, before you sign anything.</p>
+    </section>
+
+    <div class="interlude" aria-hidden="true"></div>
+
+    <!-- ACT 3 · Four steps (clay trail markers) -->
+    <section class="steps" id="steps">
+      <div class="section-head">
+        <p class="kicker reveal">Act 03 · The trail</p>
+        <h2 class="reveal">As easy as<br /><em>ordering online.</em></h2>
+      </div>
+      <div class="steps__grid">
+        <article class="step reveal">
+          <span class="step__coin">1</span>
+          <h3>Browse the inventory</h3>
+          <p>Filter by county, acreage, or price. Drone photography, boundary
+          maps, and zoning details on every verified lot.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__coin">2</span>
+          <h3>Reserve your lot</h3>
+          <p>One small doc fee locks it instantly and takes it off the market.
+          No credit checks, no qualification hurdles.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__coin">3</span>
+          <h3>Sign digitally</h3>
+          <p>A clear purchase agreement arrives by email. Review it on your
+          phone, sign electronically, done.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__coin">4</span>
+          <h3>Walk your land</h3>
+          <p>Welcome packet with coordinates, simple automatic monthly payments,
+          and a recorded deed when the terms are complete.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="interlude" aria-hidden="true"></div>
+
+    <!-- ACT 4 · The guarantee (skeuo certificate) -->
+    <section class="guarantee" id="guarantee">
+      <div class="section-head">
+        <p class="kicker reveal">Act 04 · The guarantee</p>
+        <h2 class="reveal">Love it,<br /><em>or swap it.</em></h2>
+      </div>
+      <figure class="cert reveal">
+        <p class="cert__title">Peace of Mind Guarantee</p>
+        <ul class="cert__terms">
+          <li>Visit your property within the first <strong>100 days</strong>.</li>
+          <li>Not the perfect fit? <strong>Swap it</strong> for any property of equal or greater value.</li>
+          <li>Your principal payments transfer <strong>100%</strong>.</li>
+          <li>Paid in full? You receive a <strong>Warranty Deed</strong> — the strongest deed transfer in real estate.</li>
+        </ul>
+        <span class="cert__seal" aria-hidden="true">GR</span>
+        <p class="cert__sig">Golden Ridge Partners</p>
+      </figure>
+    </section>
+
+    <div class="interlude" aria-hidden="true"></div>
+
+    <!-- ACT 5 · Where -->
+    <section class="where" id="where">
+      <div class="section-head">
+        <p class="kicker reveal">Act 05 · The ground</p>
+        <h2 class="reveal">Two counties,<br /><em>hand-selected.</em></h2>
+      </div>
+      <div class="where__grid">
+        <article class="county reveal">
+          <p class="county__tag">PUTNAM COUNTY</p>
+          <h3>The last frontier of affordable sunshine.</h3>
+          <p>Untouched, unspoiled Wild Florida — lakes, pines, and room to
+          breathe, an easy drive from the coasts.</p>
+        </article>
+        <article class="county reveal">
+          <p class="county__tag">HIGHLANDS COUNTY</p>
+          <h3>Lake country in the heart of the state.</h3>
+          <p>Rolling ridges and quiet lots in central Florida's highlands,
+          hand-picked for buildability and access.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="interlude" aria-hidden="true"></div>
+
+    <!-- ACT 6 · Juliana -->
+    <section class="founder" id="founder">
+      <div class="section-head">
+        <p class="kicker reveal">Act 06 · The founder</p>
+        <h2 class="reveal">A person,<br /><em>not a portal.</em></h2>
+      </div>
+      <blockquote class="founder__quote reveal">
+        “My promise is simple: no gimmicks. Just real land, honest
+        conversations, and a clear path to ownership.”
+        <cite>— Juliana, founder, Golden Ridge Partners</cite>
+      </blockquote>
+    </section>
+
+    <div class="interlude" aria-hidden="true"></div>
+
+    <!-- Finale · sunrise flood -->
+    <section class="flood" id="flood">
+      <h2 class="flood__title"><span class="reveal">Your land</span> <span class="reveal">is waiting.</span></h2>
+      <a class="btn btn--pine btn--big reveal" href="https://goldenrp.land/inventory">Browse the land</a>
+      <p class="flood__easy reveal">Browsing is free. Reserve only when you've found the one.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Golden Ridge Partners · Owner-financed Florida land ·
+    <a href="https://goldenrp.land">goldenrp.land</a></p>
+    <p class="footer__fine">Ownership transfers by recorded deed once purchase
+    terms are completed. Usage rights during financing follow county rules.</p>
+  </footer>
+
+  <!-- Liquid-glass sticky CTA pill -->
+  <a class="pill" data-pill href="https://goldenrp.land/inventory">from $249 down · browse land</a>
+
+  <script src="js/preloader.js" defer></script>
+  <script src="js/film.js" defer></script>
+  <script src="js/fireflies.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

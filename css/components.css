@@ -1,0 +1,275 @@
+/* Golden Ridge — components: sunrise loader, reveals, ledger, step cards,
+   certificate, county cards, fireflies, pill */
+
+/* ---------- preloader: sunrise ---------- */
+.loader {
+  display: none; /* no-JS / reduced-motion / data-saver never see it */
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #0a1a12;
+  color: var(--sand);
+  overflow: hidden;
+}
+.loader.is-active { display: block; }
+.loader.is-lift {
+  transition: transform 0.9s var(--ease-out), opacity 0.9s var(--ease-out);
+  transform: translateY(-100%);
+  opacity: 0.6;
+}
+.loader__sky {
+  position: absolute;
+  inset: 0 0 34% 0;
+  overflow: hidden;
+}
+.loader__sun {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--sun-rise, 0) * 1% - 18vmin);
+  transform: translateX(-50%);
+  width: 18vmin;
+  height: 18vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd98a 0%, var(--sun) 60%, rgba(233, 161, 59, 0) 100%);
+  box-shadow: 0 0 80px rgba(233, 161, 59, 0.6);
+}
+.loader__ground {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 34%;
+  background: #071510;
+  border-top: 2px solid rgba(233, 161, 59, 0.5);
+}
+.loader__word {
+  position: absolute;
+  left: 50%;
+  bottom: 22%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 7vw, 5.5rem);
+  letter-spacing: -0.02em;
+  color: var(--sand);
+  opacity: var(--word-in, 0);
+}
+.loader__sub {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 226, 0.4);
+}
+
+/* ---------- scroll reveals ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- fireflies (spatial role) ---------- */
+.firefly {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd98a 0%, rgba(233, 161, 59, 0.8) 50%, transparent 100%);
+  box-shadow: 0 0 12px rgba(233, 161, 59, 0.7);
+  animation:
+    fly var(--fly-dur, 14s) ease-in-out var(--fly-delay, 0s) infinite alternate,
+    pulse var(--pulse-dur, 3s) ease-in-out var(--fly-delay, 0s) infinite;
+}
+@keyframes fly {
+  from { transform: translate(0, 0); }
+  to { transform: translate(var(--fly-x, 40px), var(--fly-y, -60px)); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .firefly { animation: none; opacity: 0.5; }
+}
+
+/* ---------- cost ledger (brutalist role) ---------- */
+.ledger {
+  margin: 3.5rem var(--gutter) 0;
+  border: 2px solid rgba(245, 239, 226, 0.9);
+  background: rgba(16, 38, 27, 0.55);
+  max-width: 900px;
+}
+.lrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  border-bottom: 2px solid rgba(245, 239, 226, 0.9);
+  font-family: var(--font-mono);
+}
+.lrow:last-child { border-bottom: 0; }
+.lrow__item { font-size: 0.95rem; color: var(--sand); }
+.lrow__cost { font-size: clamp(1rem, 2vw, 1.4rem); color: var(--sand); white-space: nowrap; }
+.lrow__cost--struck { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--sage); }
+.lrow--ours {
+  background: rgba(233, 161, 59, 0.92);
+}
+.lrow--ours .lrow__item, .lrow--ours .lrow__cost { color: var(--pine); font-weight: 700; }
+
+/* stamp-in entrance */
+.stamp {
+  opacity: 0;
+  transform: scale(1.35) rotate(-3deg);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+}
+.stamp.is-in { opacity: 1; transform: scale(1) rotate(0deg); }
+@media (prefers-reduced-motion: reduce) {
+  .stamp { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- step cards (clay role) ---------- */
+.step {
+  background: var(--sand-2);
+  color: var(--pine);
+  border-radius: 26px;
+  padding: 2.4rem 1.8rem 2rem;
+  box-shadow:
+    0 18px 34px rgba(7, 21, 16, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.85);
+  transition: transform 0.35s var(--ease-out);
+}
+.step:hover { transform: translateY(-4px) rotate(-0.4deg); }
+.step__coin {
+  /* neumorphic number coin */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--sun-deep);
+  background: var(--sand-2);
+  box-shadow:
+    inset 3px 3px 7px rgba(111, 106, 88, 0.4),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.9);
+}
+.step h3 { font-size: var(--text-h3); margin-bottom: 0.6rem; }
+.step p { color: var(--mute-sand); font-size: 0.95rem; }
+
+/* ---------- guarantee certificate (skeuo role) ---------- */
+.cert {
+  position: relative;
+  margin: 3.5rem var(--gutter) 0;
+  max-width: 640px;
+  background: linear-gradient(165deg, #fdf9ee, var(--sand-2));
+  color: var(--pine);
+  border: 1px solid rgba(192, 127, 34, 0.5);
+  outline: 3px double rgba(192, 127, 34, 0.55);
+  outline-offset: -12px;
+  padding: 3rem 2.6rem 3.4rem;
+  box-shadow: 0 30px 60px rgba(7, 21, 16, 0.5);
+  transform: rotate(-0.6deg);
+}
+.cert__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  margin-bottom: 1.4rem;
+}
+.cert__terms { list-style: none; }
+.cert__terms li {
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed rgba(111, 106, 88, 0.4);
+  font-size: 0.98rem;
+  color: #3d4a3f;
+}
+.cert__terms li:last-child { border-bottom: 0; }
+.cert__terms strong { color: var(--pine); }
+.cert__seal {
+  position: absolute;
+  right: 2.2rem;
+  bottom: 2rem;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #fdf9ee;
+  background: radial-gradient(circle at 35% 30%, #d99a3f, var(--sun-deep));
+  box-shadow: 0 4px 12px rgba(7, 21, 16, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  transform: rotate(-8deg);
+}
+.cert__sig {
+  margin-top: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute-sand);
+}
+
+/* ---------- county cards ---------- */
+.county {
+  background: rgba(16, 38, 27, 0.62);
+  border: 1px solid rgba(233, 161, 59, 0.35);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.county__tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--sun);
+  margin-bottom: 0.9rem;
+}
+.county h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); color: var(--sand); margin-bottom: 0.7rem; }
+.county p { color: var(--sage); font-size: 0.98rem; }
+
+/* ---------- sticky CTA pill (liquid-glass role) ---------- */
+.pill {
+  position: fixed;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translate(-50%, 140%);
+  z-index: 60;
+  padding: 0.85rem 1.6rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--sand);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02)),
+    rgba(12, 28, 20, 0.62);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 12px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s var(--ease-out);
+}
+.pill.is-visible { transform: translate(-50%, 0); }
+.pill:hover { border-color: var(--sun); color: var(--sun); }

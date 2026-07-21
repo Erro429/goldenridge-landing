@@ -1,0 +1,9 @@
+{
+  "name": "goldenridge-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "First Light landing page for Golden Ridge Partners — owner-financed Florida land",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

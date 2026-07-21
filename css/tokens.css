@@ -1,0 +1,27 @@
+/* Golden Ridge — design tokens. Sunrise over pine flatwoods. */
+:root {
+  --pine: #10261b;       /* deep green-black ground */
+  --pine-2: #1a3527;     /* raised dark surface */
+  --sand: #f5efe2;       /* warm paper */
+  --sand-2: #ece2cd;     /* clay card surface */
+  --sun: #e9a13b;        /* sunrise gold */
+  --sun-deep: #c07f22;
+  --sage: #8fa392;       /* muted green-grey text on dark */
+  --mute-sand: #6f6a58;  /* secondary text on sand surfaces */
+
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  --text-hero: clamp(2.6rem, 7.5vw, 6.2rem);
+  --text-h2: clamp(2rem, 5vw, 4rem);
+  --text-h3: clamp(1.1rem, 1.7vw, 1.4rem);
+  --text-body: clamp(1rem, 1.15vw, 1.125rem);
+  --text-label: 0.78rem;
+
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --space: clamp(4rem, 10vw, 9rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 0.9s;
+}
